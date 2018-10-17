@@ -17,9 +17,17 @@ gem install pseudo-loc
 ## Usage
 
 ```
+$ pseudo-loc.rb filename1.json filename2.json 
+```
+
+### Example
+
+`pseudo-loc.rb` generates pseudo-localizations of the json files you pass to it. It puts the generated files in a folder called `pseudo`.
+
+```
 $ cd ~/project/source/locales/en
 
-$ pseudo-loc.rb filename1.json filename2.json filename3.json
+$ pseudo-loc.rb filename1.json filename2.json 
 
 $ ls -R
 filename1.json 
