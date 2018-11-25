@@ -1,18 +1,40 @@
-#!/usr/bin/env ruby
-
 require "optparse"
 require "json"
 require "fake-loc-lib"
 
 module App
-  def self.main(argv)
-    @@obj = FakeLoc.new
+  class FileReader
+    def initialize(filename)
+      @filename = filename
+    end
 
+    def read
+      contents   = File.read @filename
+      hash_table = JSON.parse contents
+    end
+  end
+
+  class FileWriter
+    def initialize(file_path)
+      @file_path = file_path
+    end
+
+    def write(hash_table)
+      File.open(@file_path,"w") do |file|
+        pretty_table = JSON.pretty_generate hash_table
+        file.write pretty_table
+      end
+    end
+  end
+
+  def self.main(argv)
     usage if ARGV.empty?
+
+    @@decorator = FakeLoc.new
 
     ARGV.each do |filename|
       puts filename
-      process(filename)
+      process filename
     end
   end
 
@@ -22,19 +44,18 @@ module App
   end
 
   def self.process(filename)
-    contents = File.read filename
-    hash_table = JSON.parse(contents)
+    string_resources = FileReader.new(filename).read
 
-    hash_table.each do |key, value|
-      hash_table[key] = @@obj.localize(value)
+    string_resources.each do |key, text_value|
+      string_resources[key] = @@decorator.localize text_value
     end
-    pp hash_table
 
-    path_to_output_file = build_output_filename(filename)
+    # TODO display string resources if debug flag is ON
+    pp string_resources
 
-    File.open(path_to_output_file,"w") do |f|
-      f.write(JSON.pretty_generate(hash_table))
-    end    
+    path_to_output_file = build_output_filename filename
+
+    FileWriter.new(path_to_output_file).write string_resources
   end
 
   def self.build_output_filename(filename)
