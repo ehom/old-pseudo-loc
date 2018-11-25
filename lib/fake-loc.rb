@@ -51,7 +51,8 @@ module App
     end
 
     # TODO display string resources if debug flag is ON
-    pp string_resources
+    # pp string_resources
+    puts JSON.pretty_generate string_resources
 
     path_to_output_file = build_output_filename filename
 
