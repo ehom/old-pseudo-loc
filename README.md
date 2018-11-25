@@ -1,6 +1,6 @@
 # pseudo-loc
 
-This tool generates pseudo-localized versions of your string resource json files.
+This tool is used to generate pseudo-localized versions of your string resource `json` files.
 
 ## Build
 
@@ -40,9 +40,9 @@ filename2.json
 
 ```
 
-## Sample Pseudo-localization
+## Sample of Pseudo-localization
 
-### Source Content
+### Before (Source Content)
 
 ```json
 {
@@ -51,7 +51,7 @@ filename2.json
 }
 ```
 
-### Pseudo-localized 
+### After (Pseudo-localized)
 
 ```json
 {
