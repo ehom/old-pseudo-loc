@@ -22,7 +22,7 @@ $ pseudo-loc.rb filename1.json filename2.json
 
 ### Example
 
-`pseudo-loc.rb` pseudo-localizes the json files you pass to it. It puts the generated files in a folder called `pseudo`.
+`pseudo-loc.rb` pseudo-localizes the `json` files you pass to it. It puts the generated files in a folder called `pseudo`.
 
 ```
 $ cd ~/project/source/locales/en
