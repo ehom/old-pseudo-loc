@@ -1,4 +1,3 @@
-
 class AccentService
   def initialize
     # TODO need to provide a character map
