@@ -40,3 +40,23 @@ filename2.json
 
 ```
 
+## Sample Pseudo-localization
+
+### Source Content
+
+```json
+{
+  "title": "Woops!",
+  "message": "Something went wrong.  Try again later."
+}
+```
+
+### Pseudo-localized 
+
+```json
+{
+  "title": "«__Woops!__»",
+  "message": "«____________Something went wrong.  Try again later.____________»"
+}
+```
+
