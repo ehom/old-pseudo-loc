@@ -60,3 +60,6 @@ filename2.json
 }
 ```
 
+## Implementation Reference
+
+Here is [information](http://ehom.github.io/pseudo-loc/docs) on the implementation.
