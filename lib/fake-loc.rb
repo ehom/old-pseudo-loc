@@ -43,12 +43,20 @@ module App
     exit
   end
 
+  def self.process_strings(string_resources)
+    string_resources.each do |key, text_value|
+      if ((string_resources[key]).is_a?(Hash))
+        process_strings(string_resources[key])
+      else
+        string_resources[key] = @@decorator.localize text_value
+      end
+    end
+  end
+
   def self.process(filename)
     string_resources = FileReader.new(filename).read
 
-    string_resources.each do |key, text_value|
-      string_resources[key] = @@decorator.localize text_value
-    end
+    process_strings(string_resources)
 
     # TODO display string resources if debug flag is ON
     # pp string_resources
