@@ -6,7 +6,7 @@
 <title>
   Class: BracketService
   
-    &mdash; Documentation by YARD 0.9.16
+    &mdash; Documentation by YARD 0.9.19
   
 </title>
 
@@ -94,7 +94,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/fake-loc-lib.rb</dd>
+    <dd>lib/fake_loc_lib.rb</dd>
   </dl>
   
 </div>
@@ -202,7 +202,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#localize-instance_method" title="#localize (instance method)">#<strong>localize</strong>(a)  &#x21d2; Object </a>
+      <a href="#localize-instance_method" title="#localize (instance method)">#<strong>localize</strong>(text_chars)  &#x21d2; Object </a>
     
 
     
@@ -259,7 +259,7 @@
 18</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/fake-loc-lib.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'lib/fake_loc_lib.rb', line 15</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
   <span class='ivar'>@left_bracket</span>  <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\u00ab</span><span class='tstring_end'>&quot;</span></span>
@@ -308,7 +308,7 @@
 15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/fake-loc-lib.rb', line 13</span>
+      <pre class="code"><span class="info file"># File 'lib/fake_loc_lib.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_left_bracket'>left_bracket</span>
   <span class='ivar'>@left_bracket</span>
@@ -351,7 +351,7 @@
 15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/fake-loc-lib.rb', line 13</span>
+      <pre class="code"><span class="info file"># File 'lib/fake_loc_lib.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_right_bracket'>right_bracket</span>
   <span class='ivar'>@right_bracket</span>
@@ -371,7 +371,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="localize-instance_method">
   
-    #<strong>localize</strong>(a)  &#x21d2; <tt>Object</tt> 
+    #<strong>localize</strong>(text_chars)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -388,10 +388,10 @@
 22</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/fake-loc-lib.rb', line 20</span>
+      <pre class="code"><span class="info file"># File 'lib/fake_loc_lib.rb', line 20</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_localize'>localize</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_insert'>insert</span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='ivar'>@left_bracket</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='ivar'>@right_bracket</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_localize'>localize</span><span class='lparen'>(</span><span class='id identifier rubyid_text_chars'>text_chars</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_text_chars'>text_chars</span><span class='period'>.</span><span class='id identifier rubyid_insert'>insert</span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='ivar'>@left_bracket</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='ivar'>@right_bracket</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -403,9 +403,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Dec 16 18:04:36 2018 by
+  Generated on Thu Jul 25 02:17:16 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.4.1).
+  0.9.19 (ruby-2.4.1).
 </div>
 
     </div>

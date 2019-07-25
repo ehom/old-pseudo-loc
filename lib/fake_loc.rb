@@ -1,6 +1,6 @@
-require "optparse"
-require "json"
-require "fake-loc-lib"
+require 'optparse'
+require 'json'
+require 'fake_loc_lib'
 
 module App
   class FileReader
@@ -9,8 +9,8 @@ module App
     end
 
     def read
-      contents   = File.read @filename
-      hash_table = JSON.parse contents
+      contents = File.read @filename
+      JSON.parse contents
     end
   end
 
@@ -20,7 +20,7 @@ module App
     end
 
     def write(hash_table)
-      File.open(@file_path,"w") do |file|
+      File.open(@file_path, 'w') do |file|
         pretty_table = JSON.pretty_generate hash_table
         file.write pretty_table
       end
@@ -28,24 +28,24 @@ module App
   end
 
   def self.main(argv)
-    usage if ARGV.empty?
+    usage if argv.empty?
 
     @@decorator = FakeLoc.new
 
-    ARGV.each do |filename|
+    argv.each do |filename|
       puts filename
       process filename
     end
   end
 
   def self.usage
-    puts "Usage: #{$0} filename1.json filename2.json ..."
+    puts "Usage: #{$PROGRAM_NAME} filename1.json filename2.json ..."
     exit
   end
 
   def self.process_strings(string_resources)
     string_resources.each do |key, text_value|
-      if ((string_resources[key]).is_a?(Hash))
+      if (string_resources[key]).is_a?(Hash)
         process_strings(string_resources[key])
       else
         string_resources[key] = @@decorator.localize text_value
@@ -58,7 +58,7 @@ module App
 
     process_strings(string_resources)
 
-    # TODO display string resources if debug flag is ON
+    # TODO: display string resources if debug flag is ON
     # pp string_resources
     puts JSON.pretty_generate string_resources
 
@@ -68,7 +68,7 @@ module App
   end
 
   def self.build_output_filename(filename)
-    path_to_output_dir = File.join(File.dirname(filename), "pseudo")
+    path_to_output_dir = File.join(File.dirname(filename), 'pseudo')
     Dir.mkdir(path_to_output_dir) unless Dir.exist?(path_to_output_dir)
     File.join(path_to_output_dir, File.basename(filename))
   end

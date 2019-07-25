@@ -1,11 +1,11 @@
 class AccentService
   def initialize
-    # TODO need to provide a character map
+    # TODO: need to provide a character map
   end
 
-  def localize(a)
-    # TODO not implemented yet
-    a
+  def localize(text_chars)
+    # TODO: not implemented yet
+    text_chars
   end
 end
 
@@ -17,8 +17,8 @@ class BracketService
     @right_bracket = "\u00bb"
   end
 
-  def localize(a)
-    a.insert(0, @left_bracket).push(@right_bracket)
+  def localize(text_chars)
+    text_chars.insert(0, @left_bracket).push(@right_bracket)
   end
 end
 
@@ -26,16 +26,17 @@ class ExpanderService
   attr_accessor :padding_char, :expansion
 
   def initialize
-    @padding_char = "_"
+    @padding_char = '_'
     @expansion    = 0.30
   end
 
-  def localize(a)
-    padding = [].fill(@padding_char, 0, (a.length * expansion).ceil).join('')
-    a.insert(0, padding).push(padding)
+  def localize(text_chars)
+    repeat  = (text_chars.length * @expansion).ceil
+    padding = Array.new(@padding_char, repeat).join
+
+    text_chars.insert(0, padding).push(padding)
   end
 end
-
 
 class FakeLoc
   def initialize
@@ -44,8 +45,8 @@ class FakeLoc
     @expander  = ExpanderService.new
   end
 
-  def localize(s)
-    @a = s.split('')
+  def localize(string)
+    @a = string.split('')
     accent.expand.bracket.to_s
   end
 

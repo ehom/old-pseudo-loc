@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require "fake-loc"
+require 'fake_loc'
 
 App::main(ARGV)
